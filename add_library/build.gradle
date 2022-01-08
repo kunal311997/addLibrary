@@ -30,22 +30,23 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                // The following applies a component to this publication
+                // which results in publishing APKs in a ZIP file.
+                from components.release
 
-    afterEvaluate {
-        publishing {
-            publications {
-                paidDebug(MavenPublication) {
-                    // The following applies a component to this publication
-                    // which results in publishing APKs in a ZIP file.
-
-                    groupId = 'com.kunal.addlibrary'
-                    artifactId = 'addlibrary-apks'
-                    version = '1.0'
-                }
+                groupId = 'com.kunal.addlibrary'
+                artifactId = 'addlibrary-apks'
+                version = '1.0'
             }
         }
     }
 }
+
 
 dependencies {
 
